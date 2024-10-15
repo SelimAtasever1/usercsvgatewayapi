@@ -21,5 +21,8 @@
    ```bash
    git clone https://github.com/yourusername/usercsvgatewayapi.git
 
+   composer install
+
+
 ## License
 This project is open-source and available under the MIT License.
