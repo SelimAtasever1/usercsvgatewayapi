@@ -24,6 +24,19 @@
 2. Install dependencies:
    ```bash
    composer install
+   
+3. Set up the .env file by copying the example:
+   ```bash
+   cp .env.example .env
+   
+4. Run the database migrations: 
+   ```bash
+   php artisan migrate
+
+5. Set up the job queue (optional for background processing):
+ 
+   ```bash
+   php artisan queue:work
 
 
 ## License
