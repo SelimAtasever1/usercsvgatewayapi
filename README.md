@@ -44,9 +44,9 @@
 - The data is validated and saved to the database in batches.
 - If any validation errors occur, they are reported, and invalid data is not saved.
 
+## License
+This project is open-source and available under the MIT License.
+
 ## Testing
  ```bash
    php artisan test
-
-## License
-This project is open-source and available under the MIT License.
