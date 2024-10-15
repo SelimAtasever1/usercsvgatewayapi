@@ -21,7 +21,11 @@
    ```bash
    git clone https://github.com/yourusername/usercsvgatewayapi.git
 
+2. Install dependencies:
+   ```bash
    composer install
+
+   
 
 
 ## License
