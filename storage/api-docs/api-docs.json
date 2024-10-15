@@ -1,0 +1,248 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Employee API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/employee": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get paginated listing of employees",
+                "description": "Returns list of employees",
+                "operationId": "aec9115c2e1b82bd5139f3ba90d8cd76",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "No employees found"
+                    }
+                }
+            }
+        },
+        "/api/employee/{id}": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get details of specific employee",
+                "description": "Returns details of specific employee",
+                "operationId": "7002cd80d065e00fc43b1794ed7b4d4f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the employee to fetch",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Employee not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Update specific employee",
+                "description": "Update specific employee by ID",
+                "operationId": "b1f58be54bff0320d2f19085bf535278",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the employee to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Employee"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Employee not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Delete specific employee",
+                "description": "Delete specific employee by ID",
+                "operationId": "3d61663792ac65f6dbcbf97c9e90e7e2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the employee to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Employee not found"
+                    }
+                }
+            }
+        },
+        "api/employee": {
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Upload Excel file for employees",
+                "description": "Upload Excel file to import employees to the database",
+                "operationId": "d42c459cc93cd6e1c403280d27a13dc1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "excel_file"
+                                ],
+                                "properties": {
+                                    "excel_file": {
+                                        "description": "Excel file to upload",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Employee": {
+                "properties": {
+                    "emp_id": {
+                        "description": "Employee ID",
+                        "type": "string"
+                    },
+                    "name_prefix": {
+                        "description": "Name Prefix",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "description": "First Name of the Employee",
+                        "type": "string"
+                    },
+                    "middle_initial": {
+                        "description": "Middle Initial of the Employee",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "description": "Last Name of the Employee",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender of the Employee",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Email of the Employee",
+                        "type": "string"
+                    },
+                    "date_of_birth": {
+                        "description": "Date of Birth of the Employee",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "time_of_birth": {
+                        "description": "Time of Birth of the Employee",
+                        "type": "string",
+                        "format": "time"
+                    },
+                    "age_in_yrs": {
+                        "description": "Age of the Employee in Years",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "date_of_joining": {
+                        "description": "Date of Joining",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "age_in_company_years": {
+                        "description": "Age in the Company in Years",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "phone_no": {
+                        "description": "Phone Number of the Employee",
+                        "type": "string"
+                    },
+                    "place_name": {
+                        "description": "Place Name associated with the Employee",
+                        "type": "string"
+                    },
+                    "county": {
+                        "description": "County",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "City",
+                        "type": "string"
+                    },
+                    "zip": {
+                        "description": "ZIP Code",
+                        "type": "string"
+                    },
+                    "region": {
+                        "description": "Region",
+                        "type": "string"
+                    },
+                    "user_name": {
+                        "description": "Username of the Employee",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
