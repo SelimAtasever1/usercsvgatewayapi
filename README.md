@@ -38,6 +38,15 @@
    ```bash
    php artisan queue:work
 
+## Usage
+
+- Upload a CSV file containing user data.
+- The data is validated and saved to the database in batches.
+- If any validation errors occur, they are reported, and invalid data is not saved.
+
+## Testing
+ ```bash
+   php artisan test
 
 ## License
 This project is open-source and available under the MIT License.
